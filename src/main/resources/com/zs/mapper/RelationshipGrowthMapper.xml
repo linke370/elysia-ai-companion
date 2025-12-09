@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zs.mapper.RelationshipGrowthMapper">
+
+    <resultMap id="BaseResultMap" type="com.zs.entity.RelationshipGrowth">
+            <id property="id" column="id" />
+            <result property="userId" column="user_id" />
+            <result property="intimacyLevel" column="intimacy_level" />
+            <result property="intimacyPoints" column="intimacy_points" />
+            <result property="trustLevel" column="trust_level" />
+            <result property="totalConversations" column="total_conversations" />
+            <result property="meaningfulConversations" column="meaningful_conversations" />
+            <result property="positiveFeedbacks" column="positive_feedbacks" />
+            <result property="unlockedMilestones" column="unlocked_milestones" />
+            <result property="specialMemories" column="special_memories" />
+            <result property="emotionalUnderstandingLevel" column="emotional_understanding_level" />
+            <result property="lastLevelUpDate" column="last_level_up_date" />
+            <result property="createdAt" column="created_at" />
+            <result property="updatedAt" column="updated_at" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,user_id,intimacy_level,intimacy_points,trust_level,total_conversations,
+        meaningful_conversations,positive_feedbacks,unlocked_milestones,special_memories,emotional_understanding_level,
+        last_level_up_date,created_at,updated_at
+    </sql>
+</mapper>

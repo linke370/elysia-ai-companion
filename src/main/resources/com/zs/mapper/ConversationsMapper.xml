@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zs.mapper.ConversationsMapper">
+
+    <resultMap id="BaseResultMap" type="com.zs.entity.Conversations">
+            <id property="id" column="id" />
+            <result property="userId" column="user_id" />
+            <result property="userMessage" column="user_message" />
+            <result property="aiResponse" column="ai_response" />
+            <result property="emotionLabel" column="emotion_label" />
+            <result property="emotionConfidence" column="emotion_confidence" />
+            <result property="emotionKeywords" column="emotion_keywords" />
+            <result property="conversationContext" column="conversation_context" />
+            <result property="isMeaningful" column="is_meaningful" />
+            <result property="userFeedback" column="user_feedback" />
+            <result property="feedbackNote" column="feedback_note" />
+            <result property="createdAt" column="created_at" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,user_id,user_message,ai_response,emotion_label,emotion_confidence,
+        emotion_keywords,conversation_context,is_meaningful,user_feedback,feedback_note,
+        created_at
+    </sql>
+</mapper>

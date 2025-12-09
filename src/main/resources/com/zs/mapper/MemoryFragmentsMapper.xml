@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zs.mapper.MemoryFragmentsMapper">
+
+    <resultMap id="BaseResultMap" type="com.zs.entity.MemoryFragments">
+            <id property="id" column="id" />
+            <result property="userId" column="user_id" />
+            <result property="memoryText" column="memory_text" />
+            <result property="memoryType" column="memory_type" />
+            <result property="importanceScore" column="importance_score" />
+            <result property="lastAccessed" column="last_accessed" />
+            <result property="accessCount" column="access_count" />
+            <result property="relatedKeywords" column="related_keywords" />
+            <result property="sourceConversationId" column="source_conversation_id" />
+            <result property="createdAt" column="created_at" />
+            <result property="updatedAt" column="updated_at" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,user_id,memory_text,memory_type,importance_score,last_accessed,
+        access_count,related_keywords,source_conversation_id,created_at,updated_at
+    </sql>
+</mapper>

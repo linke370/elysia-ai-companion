@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zs.mapper.EmotionAnalysisCacheMapper">
+
+    <resultMap id="BaseResultMap" type="com.zs.entity.EmotionAnalysisCache">
+            <id property="id" column="id" />
+            <result property="userId" column="user_id" />
+            <result property="textContent" column="text_content" />
+            <result property="textHash" column="text_hash" />
+            <result property="emotionResult" column="emotion_result" />
+            <result property="confidenceScore" column="confidence_score" />
+            <result property="analysisMethod" column="analysis_method" />
+            <result property="cacheValidUntil" column="cache_valid_until" />
+            <result property="createdAt" column="created_at" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,user_id,text_content,text_hash,emotion_result,confidence_score,
+        analysis_method,cache_valid_until,created_at
+    </sql>
+</mapper>

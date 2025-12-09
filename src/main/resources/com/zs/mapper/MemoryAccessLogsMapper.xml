@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zs.mapper.MemoryAccessLogsMapper">
+
+    <resultMap id="BaseResultMap" type="com.zs.entity.MemoryAccessLogs">
+            <id property="id" column="id" />
+            <result property="userId" column="user_id" />
+            <result property="memoryId" column="memory_id" />
+            <result property="conversationId" column="conversation_id" />
+            <result property="accessType" column="access_type" />
+            <result property="accessContext" column="access_context" />
+            <result property="accessEffectiveness" column="access_effectiveness" />
+            <result property="createdAt" column="created_at" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,user_id,memory_id,conversation_id,access_type,access_context,
+        access_effectiveness,created_at
+    </sql>
+</mapper>

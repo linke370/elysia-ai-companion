@@ -1,0 +1,106 @@
+spring:
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
+      - org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration
+  security:
+    enabled: false
+  
+  # 数据源配置 - 开发环境，提供本地默认值
+  datasource:
+    url: ${DATABASE_URL:jdbc:mysql://localhost:3306/elisia_ai_dev?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true}
+    username: ${DATABASE_USERNAME:root}
+    password: ${DATABASE_PASSWORD:123456}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      initial-size: 5
+      min-idle: 5
+      max-active: 20
+      max-wait: 30000
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: SELECT 1
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      filters: stat
+      web-stat-filter:
+        enabled: true
+        url-pattern: "/*"
+        exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*"
+      stat-view-servlet:
+        enabled: true
+        url-pattern: "/druid/*"
+        reset-enable: true
+        login-username: admin
+        login-password: admin
+        allow:
+
+  # Redis配置 - 开发环境
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD:}
+      database: 1  # 开发环境使用db1，避免与生产环境冲突
+      timeout: 3000
+      lettuce:
+        pool:
+          max-active: 8
+          max-wait: 1000ms
+          max-idle: 8
+          min-idle: 0
+
+  # AI配置 - 开发环境
+  ai:
+    dashscope:
+      client:
+        connect-timeout: 10s
+        read-timeout: 30s
+
+  # 邮件配置 - 开发环境可以使用测试配置或关闭
+  mail:
+    host: ${MAIL_HOST:smtp.qq.com}
+    port: ${MAIL_PORT:587}
+    username: ${MAIL_USERNAME:test@example.com}
+    password: ${MAIL_PASSWORD:}
+    default-encoding: UTF-8
+    properties:
+      mail:
+        smtp:
+          auth: ${MAIL_SMTP_AUTH:false}
+          starttls:
+            enable: false
+
+  # 跨域配置 - 开发环境允许所有
+  web:
+    cors:
+      allowed-origins: "*"
+      allowed-methods: "*"
+      allowed-headers: "*"
+      allow-credentials: true
+
+# 服务器配置 - 开发环境
+server:
+  port: ${SERVER_PORT:8080}
+  servlet:
+    context-path: /
+    encoding:
+      charset: UTF-8
+      force: true
+    async:
+      timeout: 30000
+
+# 日志配置 - 开发环境开启详细日志
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  level:
+    com.zs: DEBUG
+    org.springframework: INFO
+    org.springframework.ai: DEBUG
+    org.springframework.web: DEBUG
+    org.springframework.data.redis: DEBUG

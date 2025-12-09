@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zs.mapper.UserPreferencesMapper">
+
+    <resultMap id="BaseResultMap" type="com.zs.entity.UserPreferences">
+            <id property="id" column="id" />
+            <result property="userId" column="user_id" />
+            <result property="responseStyle" column="response_style" />
+            <result property="conversationPace" column="conversation_pace" />
+            <result property="careFrequency" column="care_frequency" />
+            <result property="preferredCareTimes" column="preferred_care_times" />
+            <result property="studyRemindersEnabled" column="study_reminders_enabled" />
+            <result property="examSupportEnabled" column="exam_support_enabled" />
+            <result property="emotionAnalysisEnabled" column="emotion_analysis_enabled" />
+            <result property="themeColor" column="theme_color" />
+            <result property="fontSize" column="font_size" />
+            <result property="createdAt" column="created_at" />
+            <result property="updatedAt" column="updated_at" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,user_id,response_style,conversation_pace,care_frequency,preferred_care_times,
+        study_reminders_enabled,exam_support_enabled,emotion_analysis_enabled,theme_color,font_size,
+        created_at,updated_at
+    </sql>
+</mapper>

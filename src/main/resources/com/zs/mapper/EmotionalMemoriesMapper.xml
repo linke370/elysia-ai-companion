@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zs.mapper.EmotionalMemoriesMapper">
+
+    <resultMap id="BaseResultMap" type="com.zs.entity.EmotionalMemories">
+            <id property="id" column="id" />
+            <result property="userId" column="user_id" />
+            <result property="emotionType" column="emotion_type" />
+            <result property="emotionContext" column="emotion_context" />
+            <result property="triggerKeywords" column="trigger_keywords" />
+            <result property="lifeScenario" column="life_scenario" />
+            <result property="aiResponsePattern" column="ai_response_pattern" />
+            <result property="responseEffectiveness" column="response_effectiveness" />
+            <result property="occurrenceTime" column="occurrence_time" />
+            <result property="occurrenceDay" column="occurrence_day" />
+            <result property="createdAt" column="created_at" />
+            <result property="updatedAt" column="updated_at" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,user_id,emotion_type,emotion_context,trigger_keywords,life_scenario,
+        ai_response_pattern,response_effectiveness,occurrence_time,occurrence_day,created_at,
+        updated_at
+    </sql>
+</mapper>

@@ -1,0 +1,100 @@
+spring:
+  # Jackson JSON配置
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    default-property-inclusion: non_null
+    serialization:
+      write-dates-as-timestamps: false
+      write-empty-json-arrays: true
+      fail-on-empty-beans: false
+    deserialization:
+      fail-on-unknown-properties: false
+    parser:
+      allow-unquoted-field-names: true
+      allow-single-quotes: true
+
+  task:
+    execution:
+      pool:
+        core-size: 10
+        max-size: 50
+        queue-capacity: 100
+      thread-name-prefix: emotion-async-
+
+  application:
+    name: elysia-ai-companion
+
+  # AI配置 - 使用环境变量
+  ai:
+    dashscope:
+      api-key: ${DASHSCOPE_API_KEY:}  # 必须通过环境变量设置
+    memory:
+      redis:
+        enabled: true
+        chat-memory:
+          enabled: true
+          session-time-to-live: 1d
+          max-sessions: 1000
+
+  # Redis通用配置
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD:}
+      database: 0
+      timeout: 5000
+      lettuce:
+        pool:
+          max-active: 8
+          max-idle: 8
+          min-idle: 0
+          max-wait: 1000ms
+
+  # 激活配置文件 - 通过环境变量控制
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}
+
+# MyBatis-Plus基础配置
+mybatis-plus:
+  type-aliases-package: com.zs.entity
+  configuration:
+    default-enum-type-handler: org.apache.ibatis.type.EnumTypeHandler
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+    cache-enabled: true
+  global-config:
+    db-config:
+      id-type: AUTO
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+      table-prefix: tbl_
+    banner: false
+
+# 应用自定义配置
+app:
+  email:
+    code-expire-minutes: 5
+    send-interval: 60
+  features:
+    debug-mode: ${APP_DEBUG_MODE:false}
+    mock-ai-response: false
+    enable-test-endpoints: false
+
+# 服务器配置
+server:
+  port: ${SERVER_PORT:8080}
+  servlet:
+    context-path: /
+    encoding:
+      charset: UTF-8
+      force: true
+
+# 日志配置
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  level:
+    com.zs: ${LOG_LEVEL_COM_ZS:INFO}
