@@ -297,6 +297,8 @@ Looking for Chinese documentation? Check out our [中文文档](README_zh.md) fo
 
 **Special Thanks to Our Contributors**:  
 *Be the first to contribute and have your name here!*
+
+
 🎭 Elysia AI Companion - 您的智能情感AI伴侣
 
   一个有记忆、情感和思考过程的AI数字生命  
